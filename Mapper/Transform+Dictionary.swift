@@ -55,7 +55,7 @@ public extension Transform {
 
         var dictionary: [U: T] = [:]
         for object in objects {
-            let model = try T(map: Mapper(JSON: object))
+            let model = try T(map: object)
             dictionary[getKey(model)] = model
         }
 

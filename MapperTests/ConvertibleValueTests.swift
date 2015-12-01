@@ -10,7 +10,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["url": "https://google.com"]))
+        let test = try! Test(map: ["url": "https://google.com"])
         XCTAssertTrue(test.URL.host == "google.com")
     }
 
@@ -22,7 +22,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["url": "https://google.com"]))
+        let test = try! Test(map: ["url": "https://google.com"])
         XCTAssertTrue(test.URL?.host == "google.com")
     }
 
@@ -34,7 +34,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["url": "##"]))
+        let test = try! Test(map: ["url": "##"])
         XCTAssertNil(test.URL)
     }
 
@@ -46,7 +46,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["urls": ["https://google.com", "example.com"]]))
+        let test = try! Test(map: ["urls": ["https://google.com", "example.com"]])
         XCTAssertTrue(test.URLs.count == 2)
     }
 
@@ -58,7 +58,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.URLs)
     }
 
@@ -70,7 +70,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["urls": ["https://google.com", "example.com"]]))
+        let test = try! Test(map: ["urls": ["https://google.com", "example.com"]])
         XCTAssertTrue(test.URLs?.count == 2)
     }
 
@@ -82,7 +82,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: ["urls": "not an array"]))
+        let test = try? Test(map: ["urls": "not an array"])
         XCTAssertNil(test)
     }
 
@@ -94,7 +94,7 @@ final class ConvertibleValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["urls": "not an array"]))
+        let test = try! Test(map: ["urls": "not an array"])
         XCTAssertNil(test.URLs)
     }
 }

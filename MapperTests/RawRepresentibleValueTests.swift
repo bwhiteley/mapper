@@ -14,7 +14,7 @@ final class RawRepresentibleValueTests: XCTestCase {
             case Hearts = "hearts"
         }
 
-        let test = try! Test(map: Mapper(JSON: ["suit": "hearts"]))
+        let test = try! Test(map: ["suit": "hearts"])
         XCTAssertTrue(test.suit == .Hearts)
     }
 
@@ -30,7 +30,7 @@ final class RawRepresentibleValueTests: XCTestCase {
             case First = 1
         }
 
-        let test = try! Test(map: Mapper(JSON: ["value": 1]))
+        let test = try! Test(map: ["value": 1])
         XCTAssertTrue(test.value == .First)
     }
 
@@ -46,7 +46,7 @@ final class RawRepresentibleValueTests: XCTestCase {
             case First = 1
         }
 
-        let test = try? Test(map: Mapper(JSON: [:]))
+        let test = try? Test(map: [:])
         XCTAssertNil(test)
     }
 
@@ -62,7 +62,7 @@ final class RawRepresentibleValueTests: XCTestCase {
             case First = 1
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.value)
     }
 
@@ -78,7 +78,7 @@ final class RawRepresentibleValueTests: XCTestCase {
             case First = 1
         }
 
-        let test = try! Test(map: Mapper(JSON: ["value": 1]))
+        let test = try! Test(map: ["value": 1])
         XCTAssertTrue(test.value == .First)
     }
 
@@ -94,7 +94,7 @@ final class RawRepresentibleValueTests: XCTestCase {
             case First = 1
         }
 
-        let test = try! Test(map: Mapper(JSON: ["value": "not an int"]))
+        let test = try! Test(map: ["value": "not an int"])
         XCTAssertNil(test.value)
     }
 }

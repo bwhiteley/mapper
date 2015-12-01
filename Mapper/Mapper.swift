@@ -4,18 +4,20 @@ import Foundation
  Mapper creates strongly typed objects from a given NSDictionary based on the mapping provided by implementing
  the Mappable protocol (see `Mappable` for an example).
  */
-public struct Mapper {
-    private let JSON: NSDictionary
-
+public protocol Mapper {
     /**
-     Create a Mapper with a NSDictionary to use as source data
-
-     - parameter JSON: The dictionary to use for the data
+     Get the AnyObject? for a given key. If an empty string is passed, return the entire data source. This
+     allows users to create objects from multiple fields in the top level of the data source
+     
+     - parameter field: The key to extract from the data source, can be an empty string to return the entire
+     data source
+     
+     - returns: The object for the given key
      */
-    public init(JSON: NSDictionary) {
-        self.JSON = JSON
-    }
+    func JSONFromField(field: String) -> AnyObject?
+}
 
+extension Mapper {
     // MARK: - T
 
     /**
@@ -120,7 +122,7 @@ public struct Mapper {
      */
     public func from<T: Mappable>(field: String) throws -> T {
         if let JSON = self.JSONFromField(field) as? NSDictionary {
-            return try T(map: Mapper(JSON: JSON))
+            return try T(map: JSON)
         }
 
         throw MapperError()
@@ -143,7 +145,7 @@ public struct Mapper {
      */
     public func from<T: Mappable>(field: String) throws -> [T] {
         if let JSON = self.JSONFromField(field) as? [NSDictionary] {
-            return try JSON.map { try T(map: Mapper(JSON: $0)) }
+            return try JSON.map { try T(map: $0) }
         }
 
         throw MapperError()
@@ -275,20 +277,5 @@ public struct Mapper {
      */
     public func optionalFrom<T>(field: String, transformation: AnyObject? throws -> T?) -> T? {
         return (try? transformation(self.JSONFromField(field))).flatMap { $0 }
-    }
-
-    // MARK: - Private
-
-    /**
-     Get the AnyObject? for a given key. If an empty string is passed, return the entire data source. This
-     allows users to create objects from multiple fields in the top level of the data source
-
-     - parameter field: The key to extract from the data source, can be an empty string to return the entire
-                        data source
-
-     - returns: The object for the given key
-     */
-    private func JSONFromField(field: String) -> AnyObject? {
-        return field.isEmpty ? self.JSON : self.JSON.valueForKeyPath(field)
     }
 }

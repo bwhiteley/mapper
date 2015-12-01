@@ -61,7 +61,7 @@ final class TransformTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: [:]))
+        let test = try? Test(map: [:])
         XCTAssertNil(test)
     }
 
@@ -75,7 +75,7 @@ final class TransformTests: XCTestCase {
             }
         }
 
-        let JSON = [
+        let JSON:NSDictionary = [
             "examples":
             [
                 [
@@ -88,7 +88,7 @@ final class TransformTests: XCTestCase {
             ]
         ]
 
-        let test = try? Test(map: Mapper(JSON: JSON))
+        let test = try? Test(map: JSON)
         XCTAssertNil(test)
     }
 }

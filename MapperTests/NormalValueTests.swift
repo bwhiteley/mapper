@@ -10,7 +10,7 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["string": "Hello"]))
+        let test = try! Test(map: ["string": "Hello"])
         XCTAssertTrue(test.string == "Hello")
     }
 
@@ -22,7 +22,7 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: [:]))
+        let test = try? Test(map: [:])
         XCTAssertNil(test)
     }
 
@@ -34,7 +34,7 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertTrue(test.string == "Hello")
     }
 
@@ -46,7 +46,7 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["strings": ["first", "second"]]))
+        let test = try! Test(map: ["strings": ["first", "second"]])
         XCTAssertTrue(test.strings.count == 2)
     }
 
@@ -58,8 +58,8 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let JSON = ["a": "b", "c": "d"]
-        let test = try! Test(map: Mapper(JSON: JSON))
+        let JSON:NSDictionary = ["a": "b", "c": "d"]
+        let test = try! Test(map: JSON)
         XCTAssertTrue((test.JSON as! [String: String]) == JSON)
     }
 
@@ -71,7 +71,7 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["foo": ["bar": "baz"]]))
+        let test = try! Test(map: ["foo": ["bar": "baz"]])
         XCTAssertTrue(test.string == "baz")
     }
 
@@ -83,7 +83,7 @@ final class NormalValueTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: ["strings": ["hi", 1]]))
+        let test = try? Test(map: ["strings": ["hi", 1]])
         XCTAssertNil(test)
     }
 }

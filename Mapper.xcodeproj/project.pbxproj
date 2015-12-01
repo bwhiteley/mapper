@@ -39,6 +39,8 @@
 		C2FC78D11BFFA027006ACF2E /* OptionalValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266A0CF1BD81908002A641F /* OptionalValueTests.swift */; };
 		C2FC78D21BFFA027006ACF2E /* RawRepresentibleValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266A0D51BD81928002A641F /* RawRepresentibleValueTests.swift */; };
 		C2FC78D31BFFA027006ACF2E /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2569A161BF3E8AB00A7CF10 /* TransformTests.swift */; };
+		CCEF5C741C0E4E10003C854E /* NSDictionary+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF5C731C0E4E10003C854E /* NSDictionary+Mapper.swift */; };
+		CCEF5C751C0E4E19003C854E /* NSDictionary+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF5C731C0E4E10003C854E /* NSDictionary+Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 		C266A0D71BD81A62002A641F /* CustomTransformationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransformationTests.swift; sourceTree = "<group>"; };
 		C2FC78AE1BFFA008006ACF2E /* Mapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2FC78B71BFFA008006ACF2E /* MapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCEF5C731C0E4E10003C854E /* NSDictionary+Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Mapper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 				C201749D1BD550C200E4FE18 /* Mapper.swift */,
 				C266A0DA1BD81AC3002A641F /* Resources */,
 				C2569A111BF3E86500A7CF10 /* Transformations */,
+				CCEF5C731C0E4E10003C854E /* NSDictionary+Mapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -374,6 +378,7 @@
 				C233A25A1BD9903F0078125F /* NSURL+Convertible.swift in Sources */,
 				C201749E1BD550C200E4FE18 /* Mapper.swift in Sources */,
 				C2569A151BF3E88400A7CF10 /* Transform+Dictionary.swift in Sources */,
+				CCEF5C741C0E4E10003C854E /* NSDictionary+Mapper.swift in Sources */,
 				C233A2571BD990140078125F /* Convertible.swift in Sources */,
 				C233A2091BD98A870078125F /* Errors.swift in Sources */,
 				C2569A131BF3E87100A7CF10 /* Transform.swift in Sources */,
@@ -403,6 +408,7 @@
 				C2FC78C61BFFA022006ACF2E /* NSURL+Convertible.swift in Sources */,
 				C2FC78C71BFFA022006ACF2E /* Errors.swift in Sources */,
 				C2FC78CB1BFFA022006ACF2E /* Transform+Dictionary.swift in Sources */,
+				CCEF5C751C0E4E19003C854E /* NSDictionary+Mapper.swift in Sources */,
 				C2FC78C51BFFA022006ACF2E /* Convertible.swift in Sources */,
 				C2FC78C81BFFA022006ACF2E /* Mappable.swift in Sources */,
 				C2FC78CA1BFFA022006ACF2E /* Transform.swift in Sources */,

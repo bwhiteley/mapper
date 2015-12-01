@@ -10,7 +10,7 @@ final class OptionalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["string": "Hello"]))
+        let test = try! Test(map: ["string": "Hello"])
         XCTAssertTrue(test.string == "Hello")
     }
 
@@ -22,7 +22,7 @@ final class OptionalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.string)
     }
 
@@ -34,7 +34,7 @@ final class OptionalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.string)
     }
 
@@ -46,7 +46,7 @@ final class OptionalValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["strings": ["first", "second"]]))
+        let test = try! Test(map: ["strings": ["first", "second"]])
         XCTAssertTrue(test.strings!.count == 2)
     }
 

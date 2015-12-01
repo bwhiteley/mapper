@@ -16,7 +16,7 @@ final class CustomTransformationTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["value": 1]))
+        let test = try! Test(map: ["value": 1])
         XCTAssertTrue(test.value == 2)
     }
 
@@ -30,7 +30,7 @@ final class CustomTransformationTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: [:]))
+        let test = try? Test(map: [:])
         XCTAssertNil(test)
     }
 
@@ -42,7 +42,7 @@ final class CustomTransformationTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["string": "hi"]))
+        let test = try! Test(map: ["string": "hi"])
         XCTAssertTrue(test.string == "hi")
     }
 
@@ -54,7 +54,7 @@ final class CustomTransformationTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.string)
     }
 
@@ -66,7 +66,7 @@ final class CustomTransformationTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.string)
     }
 }

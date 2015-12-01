@@ -17,7 +17,7 @@ final class MappableValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["nest": ["string": "hello"]]))
+        let test = try! Test(map: ["nest": ["string": "hello"]])
         XCTAssertTrue(test.nest.string == "hello")
     }
 
@@ -36,7 +36,7 @@ final class MappableValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["nests": [["string": "first"], ["string": "second"]]]))
+        let test = try! Test(map: ["nests": [["string": "first"], ["string": "second"]]])
         XCTAssertTrue(test.nests.count == 2)
     }
 
@@ -52,7 +52,7 @@ final class MappableValueTests: XCTestCase {
             init(map: Mapper) throws {}
         }
 
-        let test = try! Test(map: Mapper(JSON: [:]))
+        let test = try! Test(map: [:])
         XCTAssertNil(test.nest)
     }
 
@@ -71,7 +71,7 @@ final class MappableValueTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: ["nests": "not an array"]))
+        let test = try? Test(map: ["nests": "not an array"])
         XCTAssertNil(test)
     }
 
@@ -90,7 +90,7 @@ final class MappableValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["nests": [["string": "first"], ["string": "second"]]]))
+        let test = try! Test(map: ["nests": [["string": "first"], ["string": "second"]]])
         XCTAssertTrue(test.nests?.count == 2)
     }
 
@@ -109,7 +109,7 @@ final class MappableValueTests: XCTestCase {
             }
         }
 
-        let test = try? Test(map: Mapper(JSON: ["nests": [["foo": "first"], ["string": "second"]]]))
+        let test = try? Test(map: ["nests": [["foo": "first"], ["string": "second"]]])
         XCTAssertNil(test)
     }
 
@@ -128,7 +128,7 @@ final class MappableValueTests: XCTestCase {
             }
         }
 
-        let test = try! Test(map: Mapper(JSON: ["nests": "not an array"]))
+        let test = try! Test(map: ["nests": "not an array"])
         XCTAssertNil(test.nests)
     }
 }
